@@ -47,7 +47,7 @@ function SignUp() {
          shadow-gray-400 shadow-lg flex flex-col gap-[10px] "
       >
         <div
-          className="w-full h-[200px]  rounded-b-[30%] bg-[#20c7ff]
+          className="w-full h-[200px]  rounded-b-[30%] bg-primary
            shadow-gray-400 shadow-lg flex items-center justify-center"
         >
           <h1 className="text-gray-600 font-bold text-[30px]">
@@ -63,7 +63,7 @@ function SignUp() {
             type="text"
             placeholder="username"
             className="w-[90%] h-[50px]
-              outline-none border-2 border-[#20c7ff] px-[20px] py-[10px] bg-[white]
+              outline-none border-2 border-primary px-[20px] py-[10px] bg-[white]
               rounded-lg shadow-gray-400 shadow-lg text-gray-700 text-[19px]"
             onChange={(e) => setUserName(e.target.value)}
             value={userName}
@@ -72,14 +72,14 @@ function SignUp() {
             type="email"
             placeholder="email"
             className="w-[90%] h-[50px]
-              outline-none border-2 border-[#20c7ff] px-[20px] py-[10px] bg-[white]
+              outline-none border-2 border-primary px-[20px] py-[10px] bg-[white]
               rounded-lg shadow-gray-400 shadow-lg text-gray-700 text-[19px] "
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
 
           <div
-            className="w-[90%] h-[50px] border-2 border-[#20c7ff] overflow-hidden 
+            className="w-[90%] h-[50px] border-2 border-primary overflow-hidden 
               rounded-lg shadow-gray-400 shadow-lg relative"
           >
             <input
@@ -91,7 +91,7 @@ function SignUp() {
               value={password}
             />
             <span
-              className="absolute top-[10px] right-[20px] text-[19px] text-[#20c7ff]
+              className="absolute top-[10px] right-[20px] text-[19px] text-primary
                font-semibold cursor-pointer"
               onClick={() => setShow((prev) => !prev)}
             >
@@ -103,7 +103,7 @@ function SignUp() {
           {err && <p className="text-red-500">{"*" + err}</p>}
 
           <button
-            className="px-[20px] py-[10px] bg-[#20c7ff] rounded-2xl
+            className="px-[20px] py-[10px] bg-primary rounded-2xl
               shadow-gray-400 shadow-lg text-[20px] w-[200px] mt-[20px] font-semibold
               hover:shadow-inner"
             disabled={loading}
@@ -112,7 +112,7 @@ function SignUp() {
           </button>
           <p className="cursor-pointer" onClick={() => navigate("/login")}>
             Already Have An Account ?{" "}
-            <span className="text-[#20c7ff] font-semi-bold"> Login</span>
+            <span className="text-primary font-semi-bold"> Login</span>
           </p>
         </form>
       </div>

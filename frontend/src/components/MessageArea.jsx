@@ -70,7 +70,7 @@ function MessageArea() {
     border-l-2 border-gray-300`}>
       {selectedUser &&    
       <div className='w-full h-[100vh] flex flex-col overflow-hidden gap-[20px] items-center'>
-      <div className="w-full h-[100px] bg-[#0e7da2] rounded-b-[30px] 
+      <div className="w-full h-[100px] bg-primary-dark rounded-b-[30px] 
            shadow-gray-400 shadow-lg flex items-center gap-[20px] px-[20px] ">
             <div className=" cursor-pointer" onClick={()=>dispatch(setSelectedUser(null))}>
                     <IoIosArrowRoundBack className="w-[40px] h-[40px] text-white"/>
@@ -108,7 +108,7 @@ function MessageArea() {
          flex justify-center items-center'>
           <img src={frontendImage} alt='' className='w-[80px] absolute bottom-[100px] right-[20%] 
           rounded-lg shadow-gray-500 shadow-lg'/>
-        <form className='w-[95%] max-w-[70%] h-[60px] bg-[#0e7da2] rounded-full
+        <form className='w-[95%] max-w-[70%] h-[60px] bg-primary-dark rounded-full
          shadow-gray-500 shadow-lg flex items-center gap-[20px] px-[20px]' onSubmit={handleSendMessage}>
          
           <div onClick={()=>setShowPicker(prev=>!prev)}>

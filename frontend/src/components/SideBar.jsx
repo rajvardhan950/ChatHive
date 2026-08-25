@@ -51,7 +51,7 @@ function SideBar() {
   return (
     <div className={`lg:w-[30%] w-full h-full bg-slate-200 overflow-hidden lg:block relative ${!selectedUser?"block":"hidden"} `}>
         <div className="w-[60px] h-[60px] rounded-full overflow-hidden flex justify-center 
-                items-center bg-[#20c7ff] shadow-gray-500 text-gray-700 shadow-lg mt-[10px] 
+                items-center bg-primary shadow-gray-500 text-gray-700 shadow-lg mt-[10px] 
                 cursor-pointer fixed bottom-[20px] left-[10px]" onClick={handleLogOut}>
                 <BiLogOutCircle  className='w-[25px] h-[25px]'/>
                 </div>
@@ -60,7 +60,7 @@ function SideBar() {
                 {searchData?.map((user)=>(
                     <div key={user._id} className="w-full">
                           <div className='w-full h-[70px] flex items-center gap-[20px] px-[10px]
-                            bg-white hover:bg-[#b2ccdf] border-b-2 border-gray-400 cursor-pointer' onClick={()=>{dispatch(setSelectedUser(user))
+                            bg-white hover:bg-primary-light border-b-2 border-gray-400 cursor-pointer' onClick={()=>{dispatch(setSelectedUser(user))
                             setInput("")
                             setSearch(false)
                             }
@@ -70,7 +70,7 @@ function SideBar() {
                          <img src={user.image || dp} alt="Profile" className='h-[100%] object-cover'/>
                         </div>
                        {onlineUsers?.includes(user._id) && 
-                     <span className='w-[12px] h-[12px] rounded-full absolute bottom-[6px] right-[-1px] bg-[#3aff20]
+                     <span className='w-[12px] h-[12px] rounded-full absolute bottom-[6px] right-[-1px] bg-online-dot
                         shadow-gray-500 shadow-md'></span>}
                      </div>
                        <h1 className='text-gray-800 font-semibold text-[20px]'>{user.name || user.userName}</h1>
@@ -79,7 +79,7 @@ function SideBar() {
                      ))}
                     </div>}
              
-        <div className="w-full h-[300px] bg-[#20c7ff] rounded-b-[30%] 
+        <div className="w-full h-[300px] bg-primary rounded-b-[30%] 
            shadow-gray-400 shadow-lg flex flex-col justify-center px-[20px]">
             <h1 className='text-white font-bold text-[25px]'>ChatHive</h1>
             <div className='w-full flex justify-between items-center'>
@@ -110,7 +110,7 @@ function SideBar() {
                     <div className="w-[60px] h-[60px] rounded-full overflow-hidden flex justify-center items-center">
                   <img src={user.image || dp} alt="Profile" className='h-[100%] object-cover'/>
                   </div>
-                  <span className='w-[12px] h-[12px] rounded-full absolute bottom-[6px] right-[-1px] bg-[#3aff20] shadow-gray-500 shadow-md'></span>
+                  <span className='w-[12px] h-[12px] rounded-full absolute bottom-[6px] right-[-1px] bg-online-dot shadow-gray-500 shadow-md'></span>
                 </div>
                 ))}
             </div>
@@ -118,13 +118,13 @@ function SideBar() {
         <div className='w-full h-[50%] overflow-auto flex flex-col gap-[20px] items-center mt-[20px]'>
            {otherUsers?.map((user)=>(
             <div key={user._id} className='w-[90%] h-[60px] flex justify-start items-center gap-[20px] rounded-full
-             shadow-gray-500 bg-white shadow-lg  hover:bg-[#b2ccdf] cursor-pointer' onClick={()=>dispatch(setSelectedUser(user))}>
+             shadow-gray-500 bg-white shadow-lg  hover:bg-primary-light cursor-pointer' onClick={()=>dispatch(setSelectedUser(user))}>
                     <div className='relative rounded-full  shadow-gray-500 shadow-lg flex justify-center items-center mt-[10px] '>
                     <div className="w-[60px] h-[60px] rounded-full overflow-hidden flex justify-center items-center">
                   <img src={user.image || dp} alt="Profile" className='h-[100%] object-cover'/>
                   </div>
                   {onlineUsers?.includes(user._id) && 
-                  <span className='w-[12px] h-[12px] rounded-full absolute bottom-[6px] right-[-1px] bg-[#3aff20]
+                  <span className='w-[12px] h-[12px] rounded-full absolute bottom-[6px] right-[-1px] bg-online-dot
                    shadow-gray-500 shadow-md'></span>}
                 </div>
                    <h1 className='text-gray-800 font-semibold text-[20px]'>{user.name || user.userName}</h1>

@@ -19,7 +19,7 @@ function ReceiverMessage({image,message}) {
                bg-white shadow-gray-500 shadow-lg cursor-pointer">
                 <img src={selectedUser.image || dp} alt="Profile" className='h-[100%] object-cover'/>
           </div>
-          <div ref={scroll} className="w-fit max-w-[500px] px-[20px] py-[10px] bg-[#0e7da2] text-white
+          <div ref={scroll} className="w-fit max-w-[500px] px-[20px] py-[10px] bg-white text-gray-800 border border-primary-light
         text-[19px] rounded-tl-none rounded-2xl relative left-0  shadow-gray-500 
         shadow-lg gap-[10px] flex flex-col">
             {image && (<img src={image} alt=" "className="w-[150px] rounded-lg"
