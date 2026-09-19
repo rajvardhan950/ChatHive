@@ -13,8 +13,7 @@ import ReceiverMessage from './ReceiverMessage';
 import axios from 'axios';
 import { serverUrl } from '../main';
 import { useRef } from 'react';
-import { setMessages } from '../redux/messageSlice';
-
+import { setMessages, addMessage } from '../redux/messageSlice';
 
 
 function MessageArea() {
@@ -44,8 +43,8 @@ function MessageArea() {
           formData.append("image",backendImage)
         }
     let result= await axios.post(`${serverUrl}/api/message/send/${selectedUser._id}`,formData,{withCredentials:true})
-    dispatch(setMessages([...messages,result.data]))
-    setInput("")
+dispatch(addMessage(result.data));    
+      setInput("")
     setFrontendImage(null)
     setBackendImage(null)
     }catch(error){
@@ -57,12 +56,19 @@ function MessageArea() {
     setInput(prevInput=>prevInput+emojiData.emoji)
     setShowPicker(false)
   }
-  useEffect(()=>{
-    socket.on("newMessage",(mess)=>{
-      dispatch(setMessages([...messages,mess]))
-    })
-    return ()=>socket.off("newMessage")
-  },[messages,setMessages])
+ useEffect(() => {
+  if (!socket) return;
+
+  const handleNewMessage = (mess) => {
+    dispatch(addMessage(mess));
+  };
+
+  socket.on("newMessage", handleNewMessage);
+
+  return () => {
+    socket.off("newMessage", handleNewMessage);
+  };
+}, [socket, dispatch]);
 
  
   return (
